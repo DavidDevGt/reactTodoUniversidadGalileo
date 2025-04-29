@@ -42,6 +42,20 @@
   outline: 2px solid #bdbdfc;
   background: #f3f3ff;
 }
+.input-error-label {
+  color: #e74c3c;
+  font-size: 0.92rem;
+  margin-top: 0.18rem;
+  margin-left: 0.1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.add-form .form-control.is-invalid,
+.add-form-textarea.is-invalid {
+  border: 2px solid #e74c3c !important;
+  background: #fff5f5;
+  box-shadow: none;
+}
 .btn-moradito {
   background-color: #d6d6ff;
   color: #333;
