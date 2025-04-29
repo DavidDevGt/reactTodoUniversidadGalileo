@@ -1,0 +1,70 @@
+.add-form {
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+}
+.add-form label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.add-form input,
+.add-form textarea {
+  background: #e3e3e3;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+.add-form input:focus,
+.add-form textarea:focus {
+  outline: 2px solid #bdbdfc;
+  background: #f3f3ff;
+}
+.add-form-textarea {
+  resize: vertical;
+  min-height: 60px;
+  max-height: 200px;
+  background: #e3e3e3;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: none;
+  transition: background 0.18s;
+}
+.add-form-textarea:focus {
+  outline: 2px solid #bdbdfc;
+  background: #f3f3ff;
+}
+.btn-moradito {
+  background-color: #d6d6ff;
+  color: #333;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.7rem 0;
+  transition: background 0.2s;
+}
+.btn-moradito:hover {
+  background-color: #bdbdfc;
+}
+
+@media (max-width: 1200px) {
+    .add-form {
+        background: #fff;
+        padding: 1.5rem 2rem;
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+    }
+
+}

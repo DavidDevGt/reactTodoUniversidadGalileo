@@ -1,0 +1,29 @@
+{
+  "name": "react-todo-universidad-galileo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "npx @biomejs/biome lint .",
+    "fix": "npx @biomejs/biome check --write .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.5",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "globals": "^16.0.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.3.1"
+  }
+}

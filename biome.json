@@ -1,0 +1,69 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.7.0/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "files": {
+    "ignore": [
+      "node_modules",
+      "dist",
+      "build",
+      ".git",
+      "coverage",
+      "public",
+      "*.min.js",
+      "tsconfig.node.json",
+      "tsconfig.app.json"
+    ]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "suspicious": {
+        "noExplicitAny": "warn",
+        "noArrayIndexKey": "warn",
+        "noConsoleLog": "warn",
+        "noEmptyInterface": "error",
+        "noMisleadingInstantiator": "error"
+      },
+      "style": {
+        "noNegationElse": "warn",
+        "useShorthandArrayType": "error",
+        "useTemplate": "error"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "warn",
+        "noVoid": "error"
+      },
+      "performance": {
+        "noDelete": "warn"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "error",
+        "noUnusedVariables": "error",
+        "noUndeclaredVariables": "error"
+      },
+      "a11y": {
+        "useButtonType": "error",
+        "useAltText": "error",
+        "noAutofocus": "warn"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100,
+    "formatWithErrors": false
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "double",
+      "trailingCommas": "es5",
+      "semicolons": "always"
+    }
+  }
+}
