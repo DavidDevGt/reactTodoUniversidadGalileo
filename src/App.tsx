@@ -53,7 +53,6 @@ function App() {
         <div
           className="modal-overlay-mobile"
           onClick={() => setShowModal(false)}
-          type="button"
           aria-label="Close modal"
           onKeyDown={handleModalOverlayKeyDown}
         >
