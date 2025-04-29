@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Header() {
@@ -17,7 +17,9 @@ export default function Header() {
         <Navbar.Toggle aria-controls="main-navbar-nav" />
         <Navbar.Collapse id="main-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#" active>Tasks</Nav.Link>
+            <Nav.Link href="#" active>
+              Tasks
+            </Nav.Link>
             <Nav.Link href="#">Goals</Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "npx @biomejs/biome lint .",
     "fix": "npx @biomejs/biome check --write .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite"
   },
   "dependencies": {
     "bootstrap": "^5.3.5",

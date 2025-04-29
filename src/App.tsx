@@ -1,3 +1,4 @@
+import type React from 'react';
 import { useState } from 'react';
 import AddTaskForm from './components/AddTaskForm';
 import Header from './components/Header';
@@ -19,31 +20,48 @@ function App() {
         due,
       },
     ]);
-    setShowModal(false); // Cierra el modal en móvil
+    setShowModal(false);
   };
 
   const handleRemoveTask = (id: string) => {
     setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
+  const handleModalOverlayKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+      setShowModal(false);
+    }
+  };
+
+  const handleModalContentKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
   return (
     <>
       <Header />
       <div className="app-main-container">
-        {/* Botón solo visible en móvil */}
-        <button className="add-goal-btn-mobile" onClick={() => setShowModal(true)}>
+        <button type="button" className="add-goal-btn-mobile" onClick={() => setShowModal(true)}>
           ADD GOAL
         </button>
-        {/* Formulario embebido solo visible en desktop */}
         <div className="add-form-desktop">
           <AddTaskForm onAdd={handleAddTask} />
         </div>
         <TaskList tasks={tasks} onRemove={handleRemoveTask} />
       </div>
-      {/* Modal solo visible en móvil */}
       {showModal && (
-        <div className="modal-overlay-mobile" onClick={() => setShowModal(false)}>
-          <div className="modal-content-mobile" onClick={e => e.stopPropagation()}>
+        <div
+          className="modal-overlay-mobile"
+          onClick={() => setShowModal(false)}
+          type="button"
+          aria-label="Close modal"
+          onKeyDown={handleModalOverlayKeyDown}
+        >
+          <div
+            className="modal-content-mobile"
+            onClick={(e) => e.stopPropagation()}
+            onKeyDown={handleModalContentKeyDown}
+          >
             <AddTaskForm onAdd={handleAddTask} />
           </div>
         </div>

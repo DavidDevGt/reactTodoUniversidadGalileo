@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# Proyecto: Task Manager React - Universidad Galileo - David Vargas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una actividad de maquetación/diseño web para la Universidad Galileo.
 
-Currently, two official plugins are available:
+## Tecnologías utilizadas
+- **React 19** + **TypeScript**
+- **Vite**
+- **Bootstrap 5** y **React-Bootstrap**
+- **CSS modular**
+- **Biome**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características principales
+- **Agregar, listar y eliminar tareas/metas** con campos: nombre, descripción y fecha límite.
+- **Formulario validado** (no permite fechas pasadas, campos obligatorios, feedback visual).
+- **Diseño completamente responsivo**:
+  - En **desktop** el formulario está embebido.
+  - En **móvil** el formulario aparece como modal.
+  - Cards y botones adaptados a cualquier pantalla.
+- **Navbar responsive** con menú hamburguesa en móvil (usando Bootstrap).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Instalación y ejecución rápida
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Clona el repositorio** (o descarga el código fuente):
+   ```bash
+   git clone https://github.com/DavidDevGt/reactTodoUniversidadGalileo.git
+   cd reactTodoUniversidadGalileo
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Instala las dependencias:**
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+3. **Inicia la app en modo desarrollo:**
+   ```bash
+   npm run start
+   ```
+   > La webapp se va a abrir en tu navegador predeterminado en `http://localhost:5173`
+
+---
+
+## Estructura del proyecto
+
+- `src/components/` — Componentes React principales (Header, AddTaskForm, TaskList, TaskItem)
+- `src/styles/` — Archivos CSS organizados por componente
+
+---
+
+¡Listo! Solo ejecuta `npm install` y `npm run start` para comenzar 

@@ -1,7 +1,7 @@
 body {
   background: #fff;
   min-height: 100vh;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .app-main-container {
@@ -22,19 +22,19 @@ body {
 }
 
 @media (max-width: 900px) {
-    .app-main-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      padding: 1.2rem 0.5rem;
-    }
-    .add-form {
-      width: 98vw;
-      max-width: 98vw;
-      min-width: 0;
-      padding: 1.2rem 0.5rem;
-    }
+  .app-main-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.2rem 0.5rem;
   }
+  .add-form {
+    width: 98vw;
+    max-width: 98vw;
+    min-width: 0;
+    padding: 1.2rem 0.5rem;
+  }
+}
 
 @media (max-width: 700px) {
   .add-form-desktop {
@@ -52,7 +52,7 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     padding: 0.8rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: background 0.18s;
   }
   .add-goal-btn-mobile:active {
@@ -61,16 +61,20 @@ body {
   .modal-overlay-mobile {
     display: flex;
     position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.38);
-    align-items: center; justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.38);
+    align-items: center;
+    justify-content: center;
     z-index: 1000;
     padding: 0;
   }
   .modal-content-mobile {
     background: #fff;
     border-radius: 18px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
     padding: 1.2rem 0.7rem 1.5rem 0.7rem;
     width: 96vw;
     max-width: 98vw;

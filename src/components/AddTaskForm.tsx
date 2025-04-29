@@ -1,3 +1,4 @@
+import type React from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import '../styles/AddTaskForm.css';
@@ -35,7 +36,8 @@ export default function AddTaskForm({ onAdd }: AddTaskFormProps) {
     setTouched({ text: true, description: true, due: true });
     const validationErrors = validate();
     setErrors(validationErrors);
-    if (!text.trim() || !description.trim() || !due || Object.keys(validationErrors).length > 0) return;
+    if (!text.trim() || !description.trim() || !due || Object.keys(validationErrors).length > 0)
+      return;
     onAdd(text, description, due);
     setText('');
     setDescription('');
@@ -57,9 +59,7 @@ export default function AddTaskForm({ onAdd }: AddTaskFormProps) {
           required
           isInvalid={touched.text && !text.trim()}
         />
-        {touched.text && !text.trim() && (
-          <div className="input-error-label">Name is required</div>
-        )}
+        {touched.text && !text.trim() && <div className="input-error-label">Name is required</div>}
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>Description</Form.Label>
@@ -89,9 +89,7 @@ export default function AddTaskForm({ onAdd }: AddTaskFormProps) {
           required
           isInvalid={touched.due && (!!errors.due || !due)}
         />
-        {touched.due && errors.due && (
-          <div className="input-error-label">{errors.due}</div>
-        )}
+        {touched.due && errors.due && <div className="input-error-label">{errors.due}</div>}
       </Form.Group>
       <Button type="submit" className="w-100 btn-moradito">
         ADD GOAL

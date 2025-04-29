@@ -3,8 +3,8 @@ import type { Task } from '../models/Task';
 import TaskItem from './TaskItem';
 
 interface TaskListProps {
-    tasks: Task[];
-    onRemove: (id: string) => void;
+  tasks: Task[];
+  onRemove: (id: string) => void;
 }
 
 export default function TaskList({ tasks, onRemove }: TaskListProps) {

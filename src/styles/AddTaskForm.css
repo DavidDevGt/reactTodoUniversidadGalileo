@@ -71,14 +71,13 @@
 }
 
 @media (max-width: 1200px) {
-    .add-form {
-        background: #fff;
-        padding: 1.5rem 2rem;
-        border-radius: 18px;
-        box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
-        width: 400px;
-        display: flex;
-        flex-direction: column;
-    }
-
+  .add-form {
+    background: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+  }
 }
