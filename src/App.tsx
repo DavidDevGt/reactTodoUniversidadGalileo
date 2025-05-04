@@ -5,26 +5,30 @@ import Header from './components/Header';
 import TaskList from './components/TaskList';
 import type { Task } from './models/Task';
 import './styles/App.css';
+import { useDispatch } from 'react-redux';
+import { addTask, removeTask } from './store/taskSlice';
+import { useSelector } from 'react-redux';
+import type { RootState } from './store/store';
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const dispatch = useDispatch();
+
+  const tasks = useSelector((state: RootState) => state.tasks.tasks);
+
   const [showModal, setShowModal] = useState(false);
 
   const handleAddTask = (text: string, description: string, due: string) => {
-    setTasks((prev) => [
-      ...prev,
-      {
-        id: crypto.randomUUID(),
-        text,
-        description,
-        due,
-      },
-    ]);
+    dispatch(addTask({
+      id: crypto.randomUUID(),
+      text,
+      description,
+      due,
+    }));
     setShowModal(false);
   };
 
   const handleRemoveTask = (id: string) => {
-    setTasks((prev) => prev.filter((task) => task.id !== id));
+    dispatch(removeTask(id));
   };
 
   const handleModalOverlayKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
