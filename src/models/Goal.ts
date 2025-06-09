@@ -1,8 +1,8 @@
-export interface Task {
+export interface Goal {
   id: number;
   title: string;
   description: string;
-  dueDate: string; // ISO date string
+  targetDate: string; // ISO date string
   completed: boolean;
   createdAt: string; // ISO date string
 }
