@@ -18,10 +18,10 @@ export class ApiClient {
 
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const url = `${this.baseUrl}${endpoint}`;
-    
+
     const config: RequestInit = {
       headers: {
-        'Authorization': this.apiKey,
+        Authorization: this.apiKey,
         'Content-Type': 'application/json',
         ...options.headers,
       },
@@ -30,10 +30,10 @@ export class ApiClient {
 
     try {
       const response = await fetch(url, config);
-      
+
       if (!response.ok) {
         let errorMessage = `HTTP Error: ${response.status}`;
-        
+
         try {
           const errorData = await response.json();
           errorMessage = errorData.error || errorMessage;
@@ -46,7 +46,7 @@ export class ApiClient {
           error: errorMessage,
           statusCode: response.status,
         };
-        
+
         throw apiError;
       }
 

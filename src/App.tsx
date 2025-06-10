@@ -1,33 +1,41 @@
 import type React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Alert } from 'react-bootstrap';
-import AddTaskForm from './components/AddTaskForm';
+import { useDispatch, useSelector } from 'react-redux';
 import AddGoalForm from './components/AddGoalForm';
+import AddTaskForm from './components/AddTaskForm';
+import GoalList from './components/GoalList';
 import Header from './components/Header';
 import TaskList from './components/TaskList';
-import GoalList from './components/GoalList';
-import { useDispatch, useSelector } from 'react-redux';
-import { 
-  fetchTasks, 
-  createTask, 
-  deleteTask, 
-  toggleTaskCompletionAsync,
-  clearError as clearTaskError 
-} from './store/taskSlice';
-import { 
-  fetchGoals, 
-  createGoal, 
-  deleteGoal, 
+import {
+  clearError as clearGoalError,
+  createGoal,
+  deleteGoal,
+  fetchGoals,
   toggleGoalCompletionAsync,
-  clearError as clearGoalError 
 } from './store/goalSlice';
-import type { RootState, AppDispatch } from './store/store';
+import type { AppDispatch, RootState } from './store/store';
+import {
+  clearError as clearTaskError,
+  createTask,
+  deleteTask,
+  fetchTasks,
+  toggleTaskCompletionAsync,
+} from './store/taskSlice';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
-  
-  const { tasks, loading: tasksLoading, error: tasksError } = useSelector((state: RootState) => state.tasks);
-  const { goals, loading: goalsLoading, error: goalsError } = useSelector((state: RootState) => state.goals);
+
+  const {
+    tasks,
+    loading: tasksLoading,
+    error: tasksError,
+  } = useSelector((state: RootState) => state.tasks);
+  const {
+    goals,
+    loading: goalsLoading,
+    error: goalsError,
+  } = useSelector((state: RootState) => state.goals);
   const activeView = useSelector((state: RootState) => state.navigation.activeView);
 
   const [showModal, setShowModal] = useState(false);
@@ -115,7 +123,7 @@ function App() {
   return (
     <>
       <Header />
-      
+
       {/* Error Alert */}
       {currentError && (
         <div className="container mt-3">
@@ -130,7 +138,11 @@ function App() {
         <div className="container mt-3">
           <Alert variant="info">
             <div className="d-flex align-items-center">
-              <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              <span
+                className="spinner-border spinner-border-sm me-2"
+                role="status"
+                aria-hidden="true"
+              />
               Loading...
             </div>
           </Alert>
@@ -138,15 +150,15 @@ function App() {
       )}
 
       <div className="app-main-container">
-        <button 
-          type="button" 
-          className="add-goal-btn-mobile" 
+        <button
+          type="button"
+          className="add-goal-btn-mobile"
           onClick={() => setShowModal(true)}
           disabled={currentLoading}
         >
           {activeView === 'tasks' ? 'ADD TASK' : 'ADD GOAL'}
         </button>
-        
+
         <div className="add-form-desktop">
           {activeView === 'tasks' ? (
             <AddTaskForm onAdd={handleAddTask} />
@@ -154,22 +166,22 @@ function App() {
             <AddGoalForm onAdd={handleAddGoal} />
           )}
         </div>
-        
+
         {activeView === 'tasks' ? (
-          <TaskList 
-            tasks={tasks} 
+          <TaskList
+            tasks={tasks}
             onRemove={handleRemoveTask}
             onToggleComplete={handleToggleTaskCompletion}
           />
         ) : (
-          <GoalList 
-            goals={goals} 
+          <GoalList
+            goals={goals}
             onRemove={handleRemoveGoal}
             onToggleComplete={handleToggleGoalCompletion}
           />
         )}
       </div>
-      
+
       {showModal && (
         <div
           className="modal-overlay-mobile"

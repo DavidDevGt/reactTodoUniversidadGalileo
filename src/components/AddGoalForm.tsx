@@ -34,7 +34,7 @@ export default function AddGoalForm({ onAdd }: AddGoalFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setTouched({ title: true, description: true, targetDate: true });
-    
+
     const validationErrors = validate();
     setErrors(validationErrors);
 
@@ -49,7 +49,7 @@ export default function AddGoalForm({ onAdd }: AddGoalFormProps) {
   };
 
   const handleBlur = (field: keyof typeof touched) => {
-    setTouched(prev => ({ ...prev, [field]: true }));
+    setTouched((prev) => ({ ...prev, [field]: true }));
     setErrors(validate());
   };
 
@@ -66,9 +66,7 @@ export default function AddGoalForm({ onAdd }: AddGoalFormProps) {
           placeholder="Enter goal title"
           required
         />
-        {touched.title && !title && (
-          <div className="input-error-label">Goal title is required</div>
-        )}
+        {touched.title && !title && <div className="input-error-label">Goal title is required</div>}
       </Form.Group>
 
       <Form.Group className="mb-3">

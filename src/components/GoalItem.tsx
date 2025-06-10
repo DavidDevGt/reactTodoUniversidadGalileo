@@ -21,18 +21,22 @@ export default function GoalItem({ goal, onRemove, onToggleComplete }: GoalItemP
   };
 
   return (
-    <ListGroup.Item className={`goal-card ${goal.completed ? 'completed' : ''} ${isOverdue() ? 'overdue' : ''}`}>
+    <ListGroup.Item
+      className={`goal-card ${goal.completed ? 'completed' : ''} ${isOverdue() ? 'overdue' : ''}`}
+    >
       <div className="goal-card-content">
         <div className="goal-label">
           <span>Goal:</span>
         </div>
         <div className={`goal-value ${goal.completed ? 'goal-completed' : ''}`}>{goal.title}</div>
-        
+
         <div className="goal-label">
           <span>Description:</span>
         </div>
-        <div className={`goal-value ${goal.completed ? 'goal-completed' : ''}`}>{goal.description}</div>
-        
+        <div className={`goal-value ${goal.completed ? 'goal-completed' : ''}`}>
+          {goal.description}
+        </div>
+
         <div className="goal-label">
           <span>Target Date:</span>
         </div>
@@ -40,27 +44,27 @@ export default function GoalItem({ goal, onRemove, onToggleComplete }: GoalItemP
           {formatDate(goal.targetDate)}
           {isOverdue() && <span className="overdue-indicator"> (Overdue)</span>}
         </div>
-        
+
         <div className="goal-label">
           <span>Created:</span>
         </div>
         <div className={`goal-value ${goal.completed ? 'goal-completed' : ''}`}>
           {formatDate(goal.createdAt)}
         </div>
-        
+
         <div className="goal-status">
           <span className={`status-badge ${goal.completed ? 'completed' : 'in-progress'}`}>
             {goal.completed ? '✓ Completed' : '⏳ In Progress'}
           </span>
         </div>
-        
+
         <div className="goal-card-actions">
           <Button
             variant="outline-success"
             size="sm"
             className="toggle-btn"
             onClick={() => onToggleComplete(goal.id)}
-            aria-label={goal.completed ? "Mark as incomplete" : "Mark as complete"}
+            aria-label={goal.completed ? 'Mark as incomplete' : 'Mark as complete'}
           >
             {goal.completed ? 'Mark Incomplete' : 'Mark Complete'}
           </Button>

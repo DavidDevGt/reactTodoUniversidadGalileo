@@ -28,15 +28,15 @@ export default function Header() {
         <Navbar.Toggle aria-controls="main-navbar-nav" />
         <Navbar.Collapse id="main-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link 
-              href="#" 
+            <Nav.Link
+              href="#"
               active={activeView === 'tasks'}
               onClick={() => handleNavClick('tasks')}
             >
               Tasks
             </Nav.Link>
-            <Nav.Link 
-              href="#" 
+            <Nav.Link
+              href="#"
               active={activeView === 'goals'}
               onClick={() => handleNavClick('goals')}
             >

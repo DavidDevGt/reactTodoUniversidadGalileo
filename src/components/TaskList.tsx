@@ -22,8 +22,8 @@ export default function TaskList({ tasks, onRemove, onToggleComplete }: TaskList
   }
 
   // Separar tasks completadas y pendientes
-  const pendingTasks = tasks.filter(task => !task.completed);
-  const completedTasks = tasks.filter(task => task.completed);
+  const pendingTasks = tasks.filter((task) => !task.completed);
+  const completedTasks = tasks.filter((task) => task.completed);
 
   return (
     <div className="task-list-container">
@@ -32,9 +32,9 @@ export default function TaskList({ tasks, onRemove, onToggleComplete }: TaskList
           <h4 className="section-title">Pending Tasks ({pendingTasks.length})</h4>
           <ListGroup>
             {pendingTasks.map((task) => (
-              <TaskItem 
-                key={task.id} 
-                task={task} 
+              <TaskItem
+                key={task.id}
+                task={task}
                 onRemove={onRemove}
                 onToggleComplete={onToggleComplete}
               />
@@ -48,9 +48,9 @@ export default function TaskList({ tasks, onRemove, onToggleComplete }: TaskList
           <h4 className="section-title">Completed Tasks ({completedTasks.length})</h4>
           <ListGroup>
             {completedTasks.map((task) => (
-              <TaskItem 
-                key={task.id} 
-                task={task} 
+              <TaskItem
+                key={task.id}
+                task={task}
                 onRemove={onRemove}
                 onToggleComplete={onToggleComplete}
               />

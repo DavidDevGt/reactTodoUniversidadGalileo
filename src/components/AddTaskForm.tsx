@@ -36,7 +36,12 @@ export default function AddTaskForm({ onAdd }: AddTaskFormProps) {
     setTouched({ title: true, description: true, dueDate: true });
     const validationErrors = validate();
     setErrors(validationErrors);
-    if (!title.trim() || !description.trim() || !dueDate || Object.keys(validationErrors).length > 0)
+    if (
+      !title.trim() ||
+      !description.trim() ||
+      !dueDate ||
+      Object.keys(validationErrors).length > 0
+    )
       return;
     onAdd(title, description, dueDate);
     setTitle('');
@@ -47,7 +52,7 @@ export default function AddTaskForm({ onAdd }: AddTaskFormProps) {
   };
 
   const handleBlur = (field: keyof typeof touched) => {
-    setTouched(prev => ({ ...prev, [field]: true }));
+    setTouched((prev) => ({ ...prev, [field]: true }));
     setErrors(validate());
   };
 
