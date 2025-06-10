@@ -1,66 +1,104 @@
 import type React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Alert } from 'react-bootstrap';
 import AddTaskForm from './components/AddTaskForm';
 import AddGoalForm from './components/AddGoalForm';
 import Header from './components/Header';
 import TaskList from './components/TaskList';
 import GoalList from './components/GoalList';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTask, removeTask, toggleTaskCompletion } from './store/taskSlice';
-import { addGoal, removeGoal, toggleGoalCompletion } from './store/goalSlice';
-import type { RootState } from './store/store';
+import { 
+  fetchTasks, 
+  createTask, 
+  deleteTask, 
+  toggleTaskCompletionAsync,
+  clearError as clearTaskError 
+} from './store/taskSlice';
+import { 
+  fetchGoals, 
+  createGoal, 
+  deleteGoal, 
+  toggleGoalCompletionAsync,
+  clearError as clearGoalError 
+} from './store/goalSlice';
+import type { RootState, AppDispatch } from './store/store';
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   
-  const tasks = useSelector((state: RootState) => state.tasks.tasks);
-  const goals = useSelector((state: RootState) => state.goals.goals);
+  const { tasks, loading: tasksLoading, error: tasksError } = useSelector((state: RootState) => state.tasks);
+  const { goals, loading: goalsLoading, error: goalsError } = useSelector((state: RootState) => state.goals);
   const activeView = useSelector((state: RootState) => state.navigation.activeView);
 
   const [showModal, setShowModal] = useState(false);
 
+  useEffect(() => {
+    dispatch(fetchTasks());
+    dispatch(fetchGoals());
+  }, [dispatch]);
+
   // Task handlers
-  const handleAddTask = (title: string, description: string, dueDate: string) => {
-    const newTask = {
-      id: Date.now(), // Usando timestamp como ID temporal
-      title,
-      description,
-      dueDate,
-      completed: false,
-      createdAt: new Date().toISOString(),
-    };
-    dispatch(addTask(newTask));
-    setShowModal(false);
+  const handleAddTask = async (title: string, description: string, dueDate: string) => {
+    try {
+      await dispatch(createTask({ title, description, dueDate })).unwrap();
+      setShowModal(false);
+    } catch (error) {
+      console.error('Error creating task:', error);
+    }
   };
 
-  const handleRemoveTask = (id: number) => {
-    dispatch(removeTask(id));
+  const handleRemoveTask = async (id: number) => {
+    try {
+      await dispatch(deleteTask(id)).unwrap();
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
   };
 
-  const handleToggleTaskCompletion = (id: number) => {
-    dispatch(toggleTaskCompletion(id));
+  const handleToggleTaskCompletion = async (id: number) => {
+    try {
+      await dispatch(toggleTaskCompletionAsync(id)).unwrap();
+    } catch (error) {
+      console.error('Error toggling task completion:', error);
+    }
   };
 
   // Goal handlers
-  const handleAddGoal = (title: string, description: string, targetDate: string) => {
-    const newGoal = {
-      id: Date.now(), // Usando timestamp como ID temporal
-      title,
-      description,
-      targetDate,
-      completed: false,
-      createdAt: new Date().toISOString(),
-    };
-    dispatch(addGoal(newGoal));
-    setShowModal(false);
+  const handleAddGoal = async (title: string, description: string, targetDate: string) => {
+    try {
+      await dispatch(createGoal({ title, description, targetDate })).unwrap();
+      setShowModal(false);
+    } catch (error) {
+      console.error('Error creating goal:', error);
+    }
   };
 
-  const handleRemoveGoal = (id: number) => {
-    dispatch(removeGoal(id));
+  const handleRemoveGoal = async (id: number) => {
+    try {
+      await dispatch(deleteGoal(id)).unwrap();
+    } catch (error) {
+      console.error('Error deleting goal:', error);
+    }
   };
 
-  const handleToggleGoalCompletion = (id: number) => {
-    dispatch(toggleGoalCompletion(id));
+  const handleToggleGoalCompletion = async (id: number) => {
+    try {
+      await dispatch(toggleGoalCompletionAsync(id)).unwrap();
+    } catch (error) {
+      console.error('Error toggling goal completion:', error);
+    }
+  };
+
+  // Error handling
+  const currentError = activeView === 'tasks' ? tasksError : goalsError;
+  const currentLoading = activeView === 'tasks' ? tasksLoading : goalsLoading;
+
+  const handleDismissError = () => {
+    if (activeView === 'tasks') {
+      dispatch(clearTaskError());
+    } else {
+      dispatch(clearGoalError());
+    }
   };
 
   // Modal handlers
@@ -77,11 +115,34 @@ function App() {
   return (
     <>
       <Header />
+      
+      {/* Error Alert */}
+      {currentError && (
+        <div className="container mt-3">
+          <Alert variant="danger" dismissible onClose={handleDismissError}>
+            <strong>Error:</strong> {currentError}
+          </Alert>
+        </div>
+      )}
+
+      {/* Loading Indicator */}
+      {currentLoading && (
+        <div className="container mt-3">
+          <Alert variant="info">
+            <div className="d-flex align-items-center">
+              <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Loading...
+            </div>
+          </Alert>
+        </div>
+      )}
+
       <div className="app-main-container">
         <button 
           type="button" 
           className="add-goal-btn-mobile" 
           onClick={() => setShowModal(true)}
+          disabled={currentLoading}
         >
           {activeView === 'tasks' ? 'ADD TASK' : 'ADD GOAL'}
         </button>
