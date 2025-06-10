@@ -1,4 +1,3 @@
-
 # Task & Goal Manager – React + Redux Toolkit
 
 ¡Hola! Este es un proyecto que desarrollé como parte de mis estudios en **Universidad Galileo**. Se trata de una aplicación moderna para gestionar tareas y objetivos, creada con **React 19**, **TypeScript** y **Redux Toolkit**.
@@ -7,16 +6,33 @@ El objetivo fue combinar buenas prácticas de desarrollo frontend con una experi
 
 ---
 
+## 📋 Tabla de Contenidos
+
+- [🚀 Tecnologías que usé](#-tecnologías-que-usé)
+- [✨ ¿Qué puedes hacer con esta app?](#-qué-puedes-hacer-con-esta-app)
+- [🛠️ ¿Cómo ponerlo en marcha?](#️-cómo-ponerlo-en-marcha)
+- [📁 Cómo está organizada la app](#-cómo-está-organizada-la-app)
+- [🔧 ¿Cómo funciona por dentro?](#-cómo-funciona-por-dentro)
+- [🔧 Configuración rápida](#-configuración-rápida)
+- [🏗️ Cómo fluye la información](#️-cómo-fluye-la-información)
+- [📝 Algunas funcionalidades clave](#-algunas-funcionalidades-clave)
+- [🧪 Testing y herramientas de desarrollo](#-testing-y-herramientas-de-desarrollo)
+- [🚀 ¿Cómo desplegarla?](#-cómo-desplegarla)
+- [👨‍💻 Autor](#-autor)
+- [📄 Licencia](#-licencia)
+
+---
+
 ## 🚀 Tecnologías que usé
 
 Estas son las herramientas que forman la base de la app:
 
-* **React 19 + TypeScript** – Para construir una interfaz moderna y robusta.
-* **Redux Toolkit + React Redux** – Para manejar el estado global de forma eficiente.
-* **Vite** – Para desarrollo rápido y bundling ultra veloz.
-* **Bootstrap 5 + React-Bootstrap** – Componentes visuales listos para usar.
-* **Sass/SCSS** – Para mantener estilos organizados y reutilizables.
-* **Biome** – Para mantener el código limpio y bien formateado.
+* **React 19 + TypeScript** – Para construir una interfaz moderna y robusta
+* **Redux Toolkit + React Redux** – Para manejar el estado global de forma eficiente
+* **Vite** – Para desarrollo rápido y bundling ultra veloz
+* **Bootstrap 5 + React-Bootstrap** – Componentes visuales listos para usar
+* **Sass/SCSS** – Para mantener estilos organizados y reutilizables
+* **Biome** – Para mantener el código limpio y bien formateado
 
 ---
 
@@ -24,45 +40,45 @@ Estas son las herramientas que forman la base de la app:
 
 ### 📋 Administra tanto tareas como objetivos
 
-* **Tareas**: Cosas que hay que hacer a corto plazo.
-* **Objetivos**: Metas más grandes que se logran en el tiempo.
-* Puedes alternar entre ambas vistas desde el encabezado.
+* **Tareas**: Cosas que hay que hacer a corto plazo
+* **Objetivos**: Metas más grandes que se logran en el tiempo
+* Puedes alternar entre ambas vistas desde el encabezado
 
 ### 🔄 Funcionalidades completas y listas para usar
 
-* ✅ Crear nuevas tareas y objetivos con validación.
-* 📝 Ver una lista detallada de todos tus ítems.
-* ✏️ Marcar como completado o pendiente.
-* 🗑️ Eliminar elementos con un clic.
-* ⚡ Indicadores visuales de carga y manejo de errores en tiempo real.
+* ✅ Crear nuevas tareas y objetivos con validación
+* 📝 Ver una lista detallada de todos tus ítems
+* ✏️ Marcar como completado o pendiente
+* 🗑️ Eliminar elementos con un clic
+* ⚡ Indicadores visuales de carga y manejo de errores en tiempo real
 
 ### 📱 Pensado para cualquier pantalla
 
-* **En escritorio**: Los formularios están integrados en la misma vista.
-* **En móvil**: Todo funciona mediante modales responsivos.
-* **Diseño adaptativo**: Las tarjetas y botones se ven bien en cualquier tamaño.
-* **Navegación fluida**: Barra de navegación con menú hamburguesa incluido.
+* **En escritorio**: Los formularios están integrados en la misma vista
+* **En móvil**: Todo funciona mediante modales responsivos
+* **Diseño adaptativo**: Las tarjetas y botones se ven bien en cualquier tamaño
+* **Navegación fluida**: Barra de navegación con menú hamburguesa incluido
 
 ### 🏗️ Arquitectura sólida y escalable
 
-* Estructura por módulos usando **Redux slices**.
-* Manejo asíncrono con **thunks**.
-* **Tipado estricto** en todo el proyecto gracias a TypeScript.
-* Servicios desacoplados para comunicarte con cualquier API.
-* Componentes organizados y reutilizables.
+* Estructura por módulos usando **Redux slices**
+* Manejo asíncrono con **thunks**
+* **Tipado estricto** en todo el proyecto gracias a TypeScript
+* Servicios desacoplados para comunicarte con cualquier API
+* Componentes organizados y reutilizables
 
 ---
 
 ## 🛠️ ¿Cómo ponerlo en marcha?
 
-### Requisitos
+### Requisitos previos
 
-* Node.js 18 o superior (recomiendo usar la version LTS de tu preferencia)
+* Node.js 18 o superior (recomiendo usar la versión LTS)
 * npm o yarn
 
 ### Instalación paso a paso
 
-1. **Clona este repo**:
+1. **Clona este repositorio**:
 
    ```bash
    git clone https://github.com/DavidDevGt/reactTodoUniversidadGalileo.git
@@ -75,30 +91,35 @@ Estas son las herramientas que forman la base de la app:
    npm install
    ```
 
-3. **Arranca el servidor de desarrollo**:
+3. **Configura las variables de entorno** (opcional):
+
+   ```bash
+   cp .env.example .env
+   # Edita el archivo .env con tus configuraciones
+   ```
+
+4. **Arranca el servidor de desarrollo**:
 
    ```bash
    npm run dev
-   # o si prefieres
-   npm run start
    ```
 
-   > La app debería abrirse automáticamente en `http://localhost:5173`
+   > 🎉 La app debería abrirse automáticamente en `http://localhost:5173`
 
-4. **Otros comandos útiles**:
+### Comandos útiles
 
-   ```bash
-   npm run build     # Generar build para producción
-   npm run preview   # Ver cómo se ve la build final
-   npm run lint      # Analizar el código
-   npm run fix       # Arreglar automáticamente el formato del código
-   ```
+```bash
+npm run build     # Generar build para producción
+npm run preview   # Ver cómo se ve la build final
+npm run lint      # Analizar el código
+npm run fix       # Arreglar automáticamente el formato del código
+```
 
 ---
 
 ## 📁 Cómo está organizada la app
 
-```bash
+```
 src/
 ├── components/          # Componentes reutilizables
 ├── models/             # Tipos e interfaces de datos
@@ -118,22 +139,22 @@ src/
 
 Hay tres "slices" principales que controlan el estado:
 
-* `taskSlice`: Lista de tareas y operaciones relacionadas.
-* `goalSlice`: Lo mismo, pero para objetivos.
-* `navigationSlice`: Permite cambiar entre vistas (tareas / objetivos).
+* `taskSlice`: Lista de tareas y operaciones relacionadas
+* `goalSlice`: Lo mismo, pero para objetivos
+* `navigationSlice`: Permite cambiar entre vistas (tareas / objetivos)
 
 ### 🌐 Servicios API
 
-* Todo pasa por un cliente HTTP configurado (`api.ts`) con headers, errores y variables de entorno bien manejados.
-* `taskService` y `goalService` encapsulan la lógica para crear, actualizar y eliminar ítems.
+* Todo pasa por un cliente HTTP configurado (`api.ts`) con headers, errores y variables de entorno bien manejados
+* `taskService` y `goalService` encapsulan la lógica para crear, actualizar y eliminar ítems
 
 ### 🎨 UI y componentes
 
-* Todo el diseño es **responsive**.
-* Formularios con validación integrada.
-* Animaciones suaves con CSS.
-* Modales para una experiencia móvil fluida.
-* Estados de carga y alertas de error amigables.
+* Todo el diseño es **responsive**
+* Formularios con validación integrada
+* Animaciones suaves con CSS
+* Modales para una experiencia móvil fluida
+* Estados de carga y alertas de error amigables
 
 ---
 
@@ -162,31 +183,31 @@ Componentes UI → Acciones Redux → Thunks → Servicios API → Backend
 
 ### ✅ Tareas
 
-* Crear tareas con título, descripción y fecha límite.
-* Cambiar el estado (completa o pendiente).
-* Eliminar tareas fácilmente.
-* Validación de fechas (no puedes crear tareas con fecha pasada).
-* Orden automático por fecha de vencimiento.
+* Crear tareas con título, descripción y fecha límite
+* Cambiar el estado (completa o pendiente)
+* Eliminar tareas fácilmente
+* Validación de fechas (no puedes crear tareas con fecha pasada)
+* Orden automático por fecha de vencimiento
 
 ### 🎯 Objetivos
 
-* Crear metas a largo plazo.
-* Marcar progreso.
-* Eliminar o completar objetivos.
-* Validación de fecha objetivo.
+* Crear metas a largo plazo
+* Marcar progreso
+* Eliminar o completar objetivos
+* Validación de fecha objetivo
 
 ### 🔄 Sincronización
 
-* Estado persistente gracias al backend.
-* Actualizaciones optimistas en la UI.
-* Rollback automático en caso de error.
-* Reintentos en segundo plano.
+* Estado persistente gracias al backend
+* Actualizaciones optimistas en la UI
+* Rollback automático en caso de error
+* Reintentos en segundo plano
 
 ---
 
 ## 🧪 Testing y herramientas de desarrollo
 
-### Scripts disponibles:
+### Scripts disponibles
 
 ```bash
 npm run dev      # Desarrollo
@@ -196,7 +217,7 @@ npm run lint     # Linter
 npm run fix      # Auto-fix del código
 ```
 
-### Herramientas que ayudan:
+### Herramientas que ayudan
 
 * **Vite DevTools**
 * **Redux DevTools**
@@ -212,18 +233,28 @@ npm run build
 npm run preview
 ```
 
-Eso te genera la carpeta `dist/` lista para subir a cualquier servidor estático.
+Eso te genera la carpeta `dist/` lista para subir a cualquier servidor estático como Netlify, Vercel o GitHub Pages.
+
+---
+
+## 🤝 ¿Quieres contribuir?
+
+Si encuentras algún bug o tienes ideas para mejorar la app, ¡no dudes en abrir un issue o enviar un pull request! Toda ayuda es bienvenida.
 
 ---
 
 ## 👨‍💻 Autor
 
-**David Vargas**
-Proyecto académico para Universidad Galileo
-Materia: Desarrollo Web Moderno
+**David Vargas**  
+Proyecto académico para Universidad Galileo  
+Materia: Desarrollo Web
 
 ---
 
 ## 📄 Licencia
 
 Este proyecto fue creado con fines educativos y está destinado al uso académico dentro de la Universidad Galileo.
+
+---
+
+⭐ Si te gustó este proyecto, ¡no olvides darle una estrella!
